@@ -2,7 +2,6 @@
 balance = 500
 
 def withdraw(balance, request) :
-    original_request = request
 
     print "your balance is %s" %balance
     if   request > balance:
@@ -14,6 +13,7 @@ def withdraw(balance, request) :
         return balance
 
     else:
+        balance -= request
         while request > 0:
 
             if request >= 100:
@@ -35,7 +35,7 @@ def withdraw(balance, request) :
             elif request < 5:
                 print("give " + str(request))
                 request = 0
-        return balance - original_request
+        return balance
 
 balance = withdraw(balance, 120)
 balance = withdraw(balance, 78)
