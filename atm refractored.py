@@ -1,45 +1,59 @@
-# allowed papers: 100, 50, 10, 5, and cents
-balance = 500
 
-def withdraw(balance, request) :
+class ATM:
 
-    print "your balance is %s" %balance
-    if   request > balance:
-        print("Can't give you all this money !!")
-        return balance
+    def __init__(self, bank_name, balance):
+        self.bank_name = bank_name
+        self.balance = balance
 
-    elif request < 0:
-        print("More than zero plz!")
-        return balance
+    def withdraw(self, request) :
 
-    else:
-        balance -= request
-        while request > 0:
+        print "welcome to %s bank" %self.bank_name
+        print "your balance is %s" %self.balance
+        if   request > self.balance:
+            print("Can't give you all this money !!")
+            return self.balance
 
-            if request >= 100:
-                request -= 100
-                print("give 100")
+        elif request < 0:
+            print("More than zero plz!")
+            return self.balance
 
-            elif request >= 50:
-                request -= 50
-                print("give 50")
+        else:
+            self.balance -= request
+            while request > 0:
 
-            elif request >= 10:
-                request -= 10
-                print("give 10")
+                if request >= 100:
+                    request -= 100
+                    print("give 100")
 
-            elif request >= 5:
-                request -= 5
-                print("give 5")
+                elif request >= 50:
+                    request -= 50
+                    print("give 50")
 
-            elif request < 5:
-                print("give " + str(request))
-                request = 0
-        return balance
+                elif request >= 10:
+                    request -= 10
+                    print("give 10")
 
-balance = withdraw(balance, 120)
-balance = withdraw(balance, 78)
-balance = withdraw(balance, 358)
-balance = withdraw(balance, 123)
-balance = withdraw(balance, -54)
-balance = withdraw(balance,164)
+                elif request >= 5:
+                    request -= 5
+                    print("give 5")
+
+                elif request < 5:
+                    print("give " + str(request))
+                    request = 0
+            return self.balance
+
+atm1 = ATM("BIAT", 500)
+atm2 = ATM("Zitouna", 1450)
+
+atm1.balance = atm1.withdraw(120)
+atm1.balance = atm1.withdraw(78)
+atm1.balance = atm1.withdraw(358)
+atm1.balance = atm1.withdraw(123)
+atm1.balance = atm1.withdraw(-54)
+atm1.balance = atm1.withdraw(164)
+atm2.balance = atm2.withdraw(320)
+atm2.balance = atm2.withdraw(78)
+atm2.balance = atm2.withdraw(358)
+atm2.balance = atm2.withdraw(2000)
+atm2.balance = atm2.withdraw(-54)
+atm2.balance = atm2.withdraw(164)
