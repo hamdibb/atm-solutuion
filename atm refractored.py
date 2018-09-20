@@ -18,28 +18,14 @@ class ATM:
             return self.balance
 
         else:
+            allowed_paper = [200, 100, 50, 10, 5]
             self.balance -= request
-            while request > 0:
-
-                if request >= 100:
-                    request -= 100
-                    print("give 100")
-
-                elif request >= 50:
-                    request -= 50
-                    print("give 50")
-
-                elif request >= 10:
-                    request -= 10
-                    print("give 10")
-
-                elif request >= 5:
-                    request -= 5
-                    print("give 5")
-
-                elif request < 5:
-                    print("give " + str(request))
-                    request = 0
+            for i in range(len(allowed_paper)):
+                while request >= allowed_paper[i]:
+                    request -= allowed_paper[i]
+                    print "give %s$" %allowed_paper[i]
+                if request < allowed_paper[-1] and request > 0:
+                    print "give %s$ " %request
             return self.balance
 
 atm1 = ATM("BIAT", 500)
