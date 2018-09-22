@@ -11,11 +11,9 @@ class ATM:
         print "your balance is %s" %self.balance
         if   request > self.balance:
             print("Can't give you all this money !!")
-            return self.balance
 
         elif request < 0:
             print("More than zero plz!")
-            return self.balance
 
         else:
             allowed_paper = [200, 100, 50, 10, 5]
@@ -26,7 +24,7 @@ class ATM:
                     print "give %s$" %allowed_paper[i]
                 if request < allowed_paper[-1] and request > 0:
                     print "give %s$ " %request
-            return self.balance
+        return self.balance
 
 atm1 = ATM("BIAT", 500)
 atm2 = ATM("Zitouna", 1450)
